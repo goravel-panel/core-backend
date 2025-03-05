@@ -1,7 +1,7 @@
 ### 本地开发环境
 
 ####  安装 air
-```go
+```bash
 go install github.com/air-verse/air@latest
 air -v
 ```
@@ -9,7 +9,7 @@ air -v
 #### 启动服务
 将 `.env.example` 复制为 `.env`， 从 `database/backups/` 目录手动导入 `sql` 文件到你的数据库中， 然后修改 `.env` 文件里端口号、数据库、Redis等配置信息
 
-```go
+```bash
 // 安装依赖
 go mod tidy
 // 启动服务
