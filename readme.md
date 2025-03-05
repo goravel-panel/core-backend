@@ -10,8 +10,6 @@ air -v
 将 `.env.example` 复制为 `.env`， 从 `database/backups/` 目录手动导入 `sql` 文件到你的数据库中， 然后修改 `.env` 文件里端口号、数据库、Redis等配置信息
 
 ```go
-// 切换到 service 目录
-cd service
 // 安装依赖
 go mod tidy
 // 启动服务
