@@ -1,0 +1,9 @@
+.idea
+./service/storage/
+./service/public/static/
+./service/public/cms/
+./cms/dist/
+./cms/node_modules/
+./cms/auto-imports.d.ts
+./cms/components.d.ts
+./build/storage/
