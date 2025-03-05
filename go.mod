@@ -12,7 +12,6 @@ require (
 	github.com/goravel/framework v1.15.3
 	github.com/goravel/gin v1.3.2
 	github.com/goravel/oss v1.3.2
-	github.com/mssola/useragent v1.0.0
 	github.com/shirou/gopsutil/v3 v3.24.5
 	github.com/spf13/cast v1.7.1
 )
