@@ -9,8 +9,8 @@ require (
 	github.com/golang-module/base64Captcha v1.3.9
 	github.com/gookit/goutil v0.6.18
 	github.com/goravel/cos v1.3.2
-	github.com/goravel/framework v1.15.3
-	github.com/goravel/gin v1.3.2
+	github.com/goravel/framework v1.15.4
+	github.com/goravel/gin v1.3.3
 	github.com/goravel/oss v1.3.2
 	github.com/shirou/gopsutil/v3 v3.24.5
 	github.com/spf13/cast v1.7.1
@@ -81,7 +81,6 @@ require (
 	github.com/golang-sql/civil v0.0.0-20220223132316-b832511892a9 // indirect
 	github.com/golang-sql/sqlexp v0.1.0 // indirect
 	github.com/golang/freetype v0.0.0-20170609003504-e2365dfdc4a0 // indirect
-	github.com/golang/protobuf v1.5.4 // indirect
 	github.com/golang/snappy v0.0.4 // indirect
 	github.com/gomodule/redigo v2.0.0+incompatible // indirect
 	github.com/google/go-querystring v1.1.0 // indirect
