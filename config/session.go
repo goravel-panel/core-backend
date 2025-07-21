@@ -1,9 +1,11 @@
 package config
 
 import (
+	"github.com/goravel/framework/contracts/session"
 	"github.com/goravel/framework/facades"
 	"github.com/goravel/framework/support/path"
 	"github.com/goravel/framework/support/str"
+	redisfacades "github.com/goravel/redis/facades"
 )
 
 func init() {
@@ -14,9 +16,22 @@ func init() {
 		// This option controls the default session "driver" that will be used on
 		// requests. By default, we will use the lightweight file session driver, but you
 		// may specify any of the other wonderful drivers provided here.
-		//
-		// Supported: "file"
-		"driver": config.Env("SESSION_DRIVER", "file"),
+		"default": config.Env("SESSION_DRIVER", "file"),
+
+		// Session drivers
+		// Available Drivers: "file", "custom"
+		"drivers": map[string]any{
+			"file": map[string]any{
+				"driver": "file",
+			},
+			"redis": map[string]any{
+				"driver":     "custom",
+				"connection": "default",
+				"via": func() (session.Driver, error) {
+					return redisfacades.Session("redis")
+				},
+			},
+		},
 
 		// Session Lifetime
 		//

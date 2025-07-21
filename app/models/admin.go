@@ -9,15 +9,15 @@ const (
 )
 
 type Admin struct {
-	ID            int             `gorm:"primaryKey" json:"id"`
-	Account       string          `gorm:"column:account" json:"account"`
-	Password      string          `gorm:"column:password" json:"-"`
-	Name          string          `gorm:"column:name" json:"name"`
-	Avatar        string          `gorm:"column:avatar" json:"avatar"`
-	IsEnable      int             `gorm:"column:is_enable" json:"isEnable"`
-	IsRoot        int             `gorm:"column:is_root" json:"isRoot"`
-	LastLoginIP   string          `gorm:"column:last_login_ip" json:"lastLoginIP"`
-	LastLoginTime carbon.DateTime `gorm:"column:last_login_time" json:"lastLoginTime"`
+	ID            int              `gorm:"primaryKey" json:"id"`
+	Account       string           `gorm:"column:account" json:"account"`
+	Password      string           `gorm:"column:password" json:"-"`
+	Name          string           `gorm:"column:name" json:"name"`
+	Avatar        string           `gorm:"column:avatar" json:"avatar"`
+	IsEnable      int              `gorm:"column:is_enable" json:"isEnable"`
+	IsRoot        int              `gorm:"column:is_root" json:"isRoot"`
+	LastLoginIP   string           `gorm:"column:last_login_ip" json:"lastLoginIP"`
+	LastLoginTime *carbon.DateTime `gorm:"column:last_login_time" json:"lastLoginTime"`
 	Timestamps
 
 	// 关联表

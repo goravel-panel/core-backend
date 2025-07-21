@@ -9,7 +9,7 @@ import (
 
 func PowerBy() http.Middleware {
 	return func(ctx http.Context) {
-		name := facades.Config().GetString("app.name", "gocmf")
+		name := facades.Config().GetString("app.name", "goravel-panel")
 		version := facades.Config().GetString("app.version")
 		ctx.Response().Header("X-Powered-By", fmt.Sprintf("%s %s", name, version))
 		ctx.Request().Next()

@@ -26,6 +26,7 @@ import (
 	"github.com/goravel/framework/translation"
 	"github.com/goravel/framework/validation"
 	"github.com/goravel/gin"
+	"github.com/goravel/mysql"
 	"github.com/goravel/oss"
 )
 
@@ -109,6 +110,7 @@ func init() {
 			&gin.ServiceProvider{},
 			&oss.ServiceProvider{},
 			&cos.ServiceProvider{},
+			&mysql.ServiceProvider{},
 			&providers.AppServiceProvider{},
 			&providers.AuthServiceProvider{},
 			&providers.RouteServiceProvider{},

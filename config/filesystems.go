@@ -44,7 +44,7 @@ func init() {
 				"url":      config.Env("ALIYUN_URL"),
 				"endpoint": config.Env("ALIYUN_ENDPOINT"),
 				"via": func() (filesystem.Driver, error) {
-					return ossFacades.Oss("oss"), nil
+					return ossFacades.Oss("oss")
 				},
 			},
 			"cos": map[string]any{
@@ -53,7 +53,7 @@ func init() {
 				"secret": config.Env("TENCENT_ACCESS_KEY_SECRET"),
 				"url":    config.Env("TENCENT_URL"),
 				"via": func() (filesystem.Driver, error) {
-					return cosFacades.Cos("cos"), nil
+					return cosFacades.Cos("cos")
 				},
 			},
 		},

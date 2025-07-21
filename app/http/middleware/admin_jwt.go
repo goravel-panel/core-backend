@@ -2,6 +2,7 @@ package middleware
 
 import (
 	"errors"
+	"fmt"
 
 	"goravel/app/models"
 	"goravel/app/services/admin"
@@ -21,6 +22,7 @@ func AdminJwt() http.Middleware {
 
 		guard := facades.Auth(ctx).Guard(admin.Guard)
 		if _, err := guard.Parse(token); err != nil {
+			fmt.Println("Parse err", err)
 			if errors.Is(err, auth.ErrorTokenExpired) {
 				token, err = guard.Refresh()
 				if err != nil {

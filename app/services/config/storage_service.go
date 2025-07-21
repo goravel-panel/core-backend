@@ -52,8 +52,7 @@ func (s StorageService) SetConfig(c StorageConfig, isDefault int) error {
 		return errors.New("配置信息不存在")
 	}
 	if isDefault == -models.IsDefault {
-		var total int64
-		_ = facades.Orm().Query().Model(&models.Config{}).Where("type = ? and is_default = ? and id <> ?", models.TypeStorage, models.IsDefault, cfg.ID).Count(&total)
+		total, _ := facades.Orm().Query().Model(&models.Config{}).Where("type = ? and is_default = ? and id <> ?", models.TypeStorage, models.IsDefault, cfg.ID).Count()
 		if total == 0 {
 			return errors.New("必须设置一个默认驱动")
 		}
@@ -97,7 +96,7 @@ func (s StorageService) SetDefault(name string, isDefault int) (err error) {
 	}
 	if isDefault == -models.IsDefault {
 		var total int64
-		if err = facades.Orm().Query().Model(&cfg).Where("type = ? and is_default = ? and id <> ?", models.TypeStorage, models.IsDefault, cfg.ID).Count(&total); err != nil || total == 0 {
+		if total, err = facades.Orm().Query().Model(&cfg).Where("type = ? and is_default = ? and id <> ?", models.TypeStorage, models.IsDefault, cfg.ID).Count(); err != nil || total == 0 {
 			return errors.New("必须设置一个默认驱动")
 		}
 	}

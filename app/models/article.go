@@ -24,14 +24,14 @@ func (m *Article) TableName() string {
 
 func (m *Article) Resource() any {
 	return struct {
-		ID         int             `gorm:"primaryKey" json:"id"`
-		CategoryID int             `json:"categoryID"`
-		From       string          `json:"from"`
-		Title      string          `json:"title"`
-		Cover      string          `json:"cover"`
-		Content    string          `json:"content"`
-		IsEnable   int             `json:"isEnable"`
-		CreatedAt  carbon.DateTime `json:"createdAt"`
+		ID         int              `gorm:"primaryKey" json:"id"`
+		CategoryID int              `json:"categoryID"`
+		From       string           `json:"from"`
+		Title      string           `json:"title"`
+		Cover      string           `json:"cover"`
+		Content    string           `json:"content"`
+		IsEnable   int              `json:"isEnable"`
+		CreatedAt  *carbon.DateTime `json:"createdAt"`
 	}{
 		ID:         m.ID,
 		CategoryID: m.CategoryID,
@@ -45,13 +45,13 @@ func (m *Article) Resource() any {
 }
 
 type ArticleCategory struct {
-	ID        int             `gorm:"primaryKey" json:"id"`
-	Name      string          `gorm:"column:name" json:"name"`
-	Sort      int             `gorm:"column:sort" json:"sort"`
-	Remark    string          `gorm:"column:remark" json:"remark"`
-	IsEnable  int             `gorm:"column:is_enable" json:"isEnable"`
-	CreatedAt carbon.DateTime `gorm:"column:created_at" json:"createdAt"`
-	UpdatedAt carbon.DateTime `gorm:"autoUpdateTime;column:updated_at" json:"updatedAt"`
+	ID        int              `gorm:"primaryKey" json:"id"`
+	Name      string           `gorm:"column:name" json:"name"`
+	Sort      int              `gorm:"column:sort" json:"sort"`
+	Remark    string           `gorm:"column:remark" json:"remark"`
+	IsEnable  int              `gorm:"column:is_enable" json:"isEnable"`
+	CreatedAt *carbon.DateTime `gorm:"column:created_at" json:"createdAt"`
+	UpdatedAt *carbon.DateTime `gorm:"autoUpdateTime;column:updated_at" json:"updatedAt"`
 
 	ArticleCount int64 `gorm:"-" json:"articleCount"`
 }

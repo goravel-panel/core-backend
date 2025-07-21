@@ -2,6 +2,7 @@ package admin
 
 import (
 	"errors"
+	"fmt"
 
 	"goravel/app/models"
 	"goravel/app/services/captcha"
@@ -47,20 +48,30 @@ func (s *AccountService) Login(ctx http.Context, r LoginRequest) (token string, 
 
 	loginIP := ctx.Request().Ip()
 
+	fmt.Println("ip", loginIP)
+
 	var admin models.Admin
 	err = facades.Orm().Query().Where("account = ?", r.Account).FirstOrFail(&admin)
 	if err != nil || !facades.Hash().Check(r.Password, admin.Password) {
+		fmt.Println("pp")
+
 		err = errors.New("登录失败，请检查账号或密码是否正确")
 		return
 	}
+	fmt.Println("uu")
 
 	if admin.IsEnable != models.IsEnable {
 		err = errors.New("账号已被禁用，请联系系统管理员")
 		return
 	}
 
+	fmt.Println("kk", token)
+	fmt.Println("admin_id", admin.ID)
+
 	// 设置token
-	token, err = facades.Auth(ctx).Guard(Guard).LoginUsingID(&admin.ID)
+	token, err = facades.Auth(ctx).Guard(Guard).LoginUsingID(admin.ID)
+	fmt.Println("token val", token)
+	fmt.Println("token err", err)
 	if err != nil {
 		return
 	}

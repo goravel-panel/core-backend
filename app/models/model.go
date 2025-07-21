@@ -9,6 +9,6 @@ const (
 )
 
 type Timestamps struct {
-	CreatedAt carbon.DateTime `gorm:"autoCreateTime;column:created_at" json:"createdAt"`
-	UpdatedAt carbon.DateTime `gorm:"autoUpdateTime;column:updated_at" json:"updatedAt"`
+	CreatedAt *carbon.DateTime `gorm:"autoCreateTime;column:created_at" json:"createdAt"`
+	UpdatedAt *carbon.DateTime `gorm:"autoUpdateTime;column:updated_at" json:"updatedAt"`
 }

@@ -1,6 +1,7 @@
 package account
 
 import (
+	"fmt"
 	"goravel/app/models"
 
 	adminController "goravel/app/http/controllers/admin"
@@ -26,6 +27,7 @@ func (c *AccountController) Login(ctx http.Context) http.Response {
 		return c.response.BadRequest(ctx, err.Error())
 	}
 	token, err := c.accountService.Login(ctx, request)
+	fmt.Println("token", token)
 	if err != nil {
 		return c.response.BadRequest(ctx, err.Error())
 	}

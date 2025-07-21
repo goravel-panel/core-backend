@@ -31,17 +31,17 @@ func (m *Attach) TableName() string {
 }
 
 type AttachResource struct {
-	ID         int             `json:"id"`
-	CategoryID int             `json:"categoryID"`
-	Type       string          `json:"type"`
-	Disk       string          `json:"disk"`
-	Name       string          `json:"name"`
-	Mime       string          `json:"mime"`
-	Ext        string          `json:"ext"`
-	Size       string          `json:"size"`
-	Path       string          `json:"path"`
-	Url        string          `json:"url"`
-	CreatedAt  carbon.DateTime `json:"createdAt"`
+	ID         int              `json:"id"`
+	CategoryID int              `json:"categoryID"`
+	Type       string           `json:"type"`
+	Disk       string           `json:"disk"`
+	Name       string           `json:"name"`
+	Mime       string           `json:"mime"`
+	Ext        string           `json:"ext"`
+	Size       string           `json:"size"`
+	Path       string           `json:"path"`
+	Url        string           `json:"url"`
+	CreatedAt  *carbon.DateTime `json:"createdAt"`
 }
 
 func (m *Attach) Resource() AttachResource {
